@@ -1,2 +1,5 @@
-# webapp
-# repository for zeal intern web app project - jacob overton
+# jacob overton
+# ----------------------
+# web app respository
+# ----------------------
+# zeal internship dev project
