@@ -1,5 +1,2 @@
-# jacob overton
-# ----------------------
-# web app respository
-# ----------------------
-# zeal internship dev project
+# JACOB OVERTON - ZEAL INTERNSHIP 2024
+# WEB APP PROJECT REPOSITORY
