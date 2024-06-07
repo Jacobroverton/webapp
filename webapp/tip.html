@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAWAFT (Tip Calculator)</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./TAWAFTlogo2.webp" type="image/x-icon">
+</head>
+<body>
+    <div class="parallax"></div>
+    <header>
+            <a href="index.html">
+            <img src="TAWAFTlogo.webp" alt="TAWAFT Logo" class="logo">
+            </a>
+        <h1>There's A Web App For That</h1>
+    </header>
+    <main>
+        <section class="tip-calculator">
+            <h1>Tip Calculator</h1>
+            <label for="subtotal">Subtotal:</label>
+            <input type="number" id="subtotal" name="subtotal" min="0" step="0.01" placeholder="Enter your subtotal">
+            
+            <label for="tip-percentage">Tip Percentage:</label>
+            <div class="slider-container">
+                <input type="range" id="tip-percentage" name="tip-percentage" min="0" max="30" value="15" class="vertical-slider">
+                <span id="tip-percentage-value">15%</span>
+            </div>
+            
+            <div class="buttons">
+                <button onclick="calculateTip('subtotal')">Tip on Subtotal</button>
+                <button onclick="calculateTip('total')">Tip on Total</button>
+            </div>
+            
+            <div class="result">
+                <p id="result-text"></p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; TAWAFT 2024</p>
+    </footer>
+    <script>
+        document.getElementById('tip-percentage').addEventListener('input', function() {
+            document.getElementById('tip-percentage-value').textContent = this.value + '%';
+        });
+
+        function calculateTip(type) {
+            const subtotal = parseFloat(document.getElementById('subtotal').value);
+            const tipPercentage = parseFloat(document.getElementById('tip-percentage').value);
+            const taxRate = 8.25 / 100;
+            let total, tipAmount;
+
+            if (type === 'subtotal') {
+                tipAmount = subtotal * (tipPercentage / 100);
+                total = subtotal + tipAmount;
+            } else {
+                const totalWithTax = subtotal * (1 + taxRate);
+                tipAmount = totalWithTax * (tipPercentage / 100);
+                total = totalWithTax + tipAmount;
+            }
+
+            document.getElementById('result-text').textContent = `Tip Amount: $${tipAmount.toFixed(2)}, Total: $${total.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
