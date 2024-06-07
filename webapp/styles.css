@@ -40,9 +40,9 @@ header.scrolled {
 
 header .logo {
     position: absolute;
-    left: 10px;
-    top: 0px;
-    width: 150px; /* Adjust size as needed */
+    left: 30px;
+    top: 8px;
+    width: 100px; /* Adjust size as needed */
     height: auto;
 }
 
@@ -53,6 +53,7 @@ footer {
     width: 100%;
     top: 0;
     left: 0;
+    color: rgb(21,50,79);
 }
 
 main {
@@ -197,8 +198,11 @@ h1 {
     font-size: 250%;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin-top: 0%;
+    color: rgb(21,50,79);
 }
 
 p1 {
     font-size: 180%;
+    color: rgb(21,50,79);
 }
+
