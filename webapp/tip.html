@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAWAFT (Tip Calculator)</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./TAWAFTlogo2.webp" type="image/x-icon">
+</head>
+<body>
+    <div class="parallax"></div>
+    <header>
+        <a href="index.html">
+            <img src="TAWAFTlogo.webp" alt="TAWAFT Logo" class="logo">
+        </a>
+        <h1>There's A Web App For That</h1>
+    </header>
+    <main>
+        <section>
+            <label for="billAmount">Bill Amount:</label>
+            <div class="input-wrapper">
+                <div class="input-symbol">$</div>
+                <input type="number" id="billAmount" placeholder="Enter bill amount">
+            </div>
+
+            <label for="tipPercent">Tip Percentage:</label>
+            <div class="input-wrapper">
+                <div class="input-symbol">%</div>
+                <input type="number" id="tipPercent" placeholder="Enter tip percentage">
+            </div>
+
+            <button onclick="calculateTip()">Calculate Tip</button>
+
+            <p>Total bill: $<span id="totalBill">0.00</span></p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; TAWAFT 2024</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
