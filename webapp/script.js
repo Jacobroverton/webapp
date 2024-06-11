@@ -105,6 +105,7 @@ window.addEventListener('DOMContentLoaded', () => {
     setParallax();
     toggleHeaderOpacity();
     loadLists();
+    initMap();
 });
 
 let consecutiveWins = 0;
@@ -193,3 +194,38 @@ const getWeather = async () => {
 };
 
 document.getElementById('getWeatherButton').addEventListener('click', getWeather);
+
+// Google Maps Integration
+let map;
+
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 37.7749, lng: -122.4194 }, // Default to San Francisco
+        zoom: 8
+    });
+
+    map.addListener('click', async (event) => {
+        const { latLng } = event;
+        const lat = latLng.lat();
+        const lng = latLng.lng();
+        const weatherData = await fetchWeatherData(lat, lng);
+        displayWeatherPopup(weatherData, latLng);
+    });
+}
+
+async function fetchWeatherData(lat, lng) {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&appid=d49533afe8b5f59c0302217867c82f12&units=metric`);
+    return response.json();
+}
+
+function displayWeatherPopup(data, latLng) {
+    const infowindow = new google.maps.InfoWindow({
+        content: `<h3>${data.name}</h3><p>${data.weather[0].description}, ${data.main.temp}°C</p>`,
+        position: latLng
+    });
+    infowindow.open(map);
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+    initMap();
+});

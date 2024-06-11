@@ -136,7 +136,7 @@ h1 {
     color: rgb(21, 50, 79);
 }
 
-p1 {
+p {
     font-size: 180%;
     color: rgb(21, 50, 79);
 }
@@ -325,7 +325,6 @@ ul {
     background-color: #dff0d8;
 }
 
-/* ROCK PAPER SCISSORS */
 .rps-container {
     display: flex;
     flex-direction: column;
@@ -369,7 +368,6 @@ ul {
     margin: 5px 0;
 }
 
-/* WEATHER */
 .weather-results {
     text-align: center;
     margin-top: 20px;
@@ -378,4 +376,10 @@ ul {
 .weather-results p {
     font-size: 18px;
     margin: 10px 0;
+}
+
+.map-container {
+    width: 100%;
+    height: 500px;
+    margin-top: 20px;
 }
